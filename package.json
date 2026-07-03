@@ -1,0 +1,24 @@
+{
+  "name": "aula-backend",
+  "version": "0.0.1",
+  "description": "Sistema da aula de backend",
+  "homepage": "https://github.com/mateusbohntb-ai/aula-backend#readme",
+  "bugs": {
+    "url": "https://github.com/mateusbohntb-ai/aula-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusbohntb-ai/aula-backend.git"
+  },
+  "license": "ISC",
+  "author": "Mateus Bohn dos Santos",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
