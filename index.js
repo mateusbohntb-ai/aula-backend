@@ -12,7 +12,16 @@ app.get('/api/v1/somar', (req, res) => {
 
 const resultado = numero1 + numero2 
 res.send({ resultado })
-});
+})
+
+//crod - create ,read , Update and delete 
+app.get('/api/pessoa/:id', (req, res) => {
+
+  const id = req.params.id
+
+  res.send({ message: id })
+
+})
 
 
 
