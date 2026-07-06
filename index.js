@@ -1,25 +1,45 @@
 import express from "express"
+import bancoDeDados from "./repository/index.js"
+
 
 //server ou app
 
 const app = express()
 //Configura uma rota ´para o método HTTP GET na raiz ("/") do aplicativo.
 //path params - router 
-app.get('/api/v1/somar', (req, res) => {
+//app.get('/api/v1/somar', (req, res) => {
     // query params
-  const numero1 =Number(req.query.batata)
-  const numero2 =Number(req.query.numero2)
+ // const numero1 =Number(req.query.batata)
+  ///const numero2 =Number(req.query.numero2)
 
-const resultado = numero1 + numero2 
-res.send({ resultado })
-})
+//const resultado = numero1 + numero2 
+//res.send({ resultado })
+//})
 
-//crod - create ,read , Update and delete 
-app.get('/api/pessoa/:id', (req, res) => {
+
+app.get('/api/v1/pessoa/:id', (req, res) => {
 
   const id = req.params.id
 
-  res.send({ message: id })
+ const pessoa = bancoDeDados.find(it => it.id == id)
+
+  res.send({ pessoa})
+
+ 
+})
+
+
+
+//crod - create ,read , Update and delete 
+app.get('/api/pessoa', (req, res) => {
+
+//const name = req.query.name
+//const id = req.query.id
+
+const {id ,name } = req.query
+bancoDeDados.push({id , name})
+console.log(bancoDeDados)
+  res.send({ message: "Pessoa criada com sucesso "})
 
 })
 
