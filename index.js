@@ -23,6 +23,12 @@ app.get('/api/v1/pessoa/:id', (req, res) => {
 
  const pessoa = bancoDeDados.find(it => it.id == id)
 
+ if (!pessoa) {
+
+  res.send({ message: "pessoa não encontrada "})
+
+  return
+ }
   res.send({ pessoa})
 
  
@@ -37,9 +43,19 @@ app.get('/api/pessoa', (req, res) => {
 //const id = req.query.id
 
 const {id ,name } = req.query
+
 bancoDeDados.push({id , name})
+
 console.log(bancoDeDados)
-  res.send({ message: "Pessoa criada com sucesso "})
+
+if(!id ||!name ){
+
+  res.send({ message: "Favor informar id e o name  "})
+return
+}
+
+
+res.send({ message: "Pessoa criada com sucesso "})
 
 })
 
