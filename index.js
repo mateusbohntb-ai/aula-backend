@@ -1,106 +1,50 @@
 import express from "express"
-import bancoDeDados from "./repository/index.js"
-
-
-//server ou app
 
 const app = express()
-//Configura uma rota ´para o método HTTP GET na raiz ("/") do aplicativo.
-//path params - router 
-//app.get('/api/v1/somar', (req, res) => {
-    // query params
- // const numero1 =Number(req.query.batata)
-  ///const numero2 =Number(req.query.numero2)
 
-//const resultado = numero1 + numero2 
-//res.send({ resultado })
-//})
+// Somar
+app.get("/api/v1/somar" , (req,res) => {
+
+ const {numero1 , numero2} = req.query
+
+ const resultado = Number(numero1) + Number(numero2)
 
 
-app.get('/api/v1/pessoa/:id', (req, res) => {
-
-  const id = req.params.id
-
- const pessoa = bancoDeDados.find(it => it.id == id)
-
- if (!pessoa) {
-
-  res.send({ message: "pessoa nao encontrada  "})
-
-  return
- }
-  res.send({ pessoa})
-
- 
+ res.status(200).send({ 
+  messege : resultado
 })
-
-
-
-
-app.get('/api/v1/deletar/:id', (req, res) => {
-
-  const id = req.params.id
-
- const pessoa = bancoDeDados.find(it => it.id == id)
-
- if (!pessoa) {
-
-  res.send({ message: "pessoa nao encontrada  "})
-
-  return
- }
-  res.send({ pessoa}) = 0
-
- 
-})
-
-
-app.get('/api/v1/editar/:id/:alterar', (req, res) => {
-
-  const id = req.params.id
-
-    const alterar = req.params.alterar
- const pessoa = bancoDeDados.find(it => it.id == id)
-
- if (!pessoa) {
-
-  res.send({ message: "pessoa nao encontrada  "})
-
-  return
- }
-  res.send({ name}) = alterar
-
- 
-})
-
-
-
-
-
-//crod - create ,read , Update and delete 
-app.get('/api/pessoa', (req, res) => {
-
-//const name = req.query.name
-//const id = req.query.id
-
-const {id ,name } = req.query
-
-bancoDeDados.push({id , name})
-
-console.log(bancoDeDados)
-
-if(!id ||!name ){
-
-  res.send({ message: "Favor informar id e o name  "})
-return
-}
-
-
-res.send({ message: "Pessoa criada com sucesso "})
 
 })
 
+// subtrair
+app.get("/api/v1/subtrair", (req, res) => {
+  const { numero1, numero2 } = req.query;
+  const resultado = Number(numero1) - Number(numero2)
 
+  res.status(200).send({
+    message: resultado
+  });
+});
+
+// multiplicar
+app.get("/api/v1/multiplicar", (req, res) => {
+  const { numero1, numero2 } = req.query;
+  const resultado = Number(numero1) * Number(numero2)
+
+  res.status(200).send({
+    message: resultado
+  });
+});
+
+// dividir
+app.get("/api/v1/divisao", (req, res) => {
+  const { numero1, numero2 } = req.query;
+  const resultado = Number(numero1) / Number(numero2)
+
+  res.status(200).send({
+    message: resultado
+  });
+})
 
 // inicia o servidor express na porta 3000 e define uma função de retorno de uma chamada 
 app.listen(3000 , () => {
