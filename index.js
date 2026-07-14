@@ -2,10 +2,12 @@ import express from "express"
 
 const app = express()
 
-// Somar
-app.get("/api/v1/somar" , (req,res) => {
+app.use(express.json())
 
- const {numero1 , numero2} = req.query
+// Somar
+app.post("/api/v1/somar" , (req,res) => {
+
+ const {numero1 , numero2} = req.body
 
  const resultado = Number(numero1) + Number(numero2)
 
@@ -17,8 +19,8 @@ app.get("/api/v1/somar" , (req,res) => {
 })
 
 // subtrair
-app.get("/api/v1/subtrair", (req, res) => {
-  const { numero1, numero2 } = req.query;
+app.post("/api/v1/subtrair", (req, res) => {
+  const { numero1, numero2 } = req.body;
   const resultado = Number(numero1) - Number(numero2)
 
   res.status(200).send({
