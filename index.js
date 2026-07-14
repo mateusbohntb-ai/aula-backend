@@ -15,6 +15,93 @@ res.send({ resultado })
 });
 
 
+app.get('/api/v1/exer1', (req, res) => {
+    // query params
+  const numero1 =Number(req.query.batata)
+  const numero2 =Number(req.query.numero2)
+
+const resultado = numero1 + numero2 
+res.send({ resultado })
+});
+
+
+
+app.get('/api/v1/exer2', (req, res) => {
+    // query params
+  const numero1 =Number(req.query.batata)
+  const numero2 =Number(req.query.numero2)
+
+const resultado = numero1 + numero2 
+res.send({ resultado })
+});
+
+
+
+app.get('/api/v1/exer3', (req, res) => {
+    // query params
+  const numero1 =Number(req.query.batata)
+  const numero2 =Number(req.query.numero2)
+
+const resultado = numero1 + numero2 
+res.send({ resultado })
+});
+
+
+
+
+app.get('/api/v1/exer4', (req, res) => {
+    // query params
+  const numero1 =Number(req.query.batata)
+  const numero2 =Number(req.query.numero2)
+
+const resultado = numero1 + numero2 
+res.send({ resultado })
+});
+
+
+
+app.get('/api/v1/exer5', (req, res) => {
+    // query params
+  const numero1 =Number(req.query.batata)
+  const numero2 =Number(req.query.numero2)
+
+const resultado = numero1 + numero2 
+res.send({ resultado })
+});
+
+
+
+app.get('/api/v1/exer6', (req, res) => {
+    // query params
+  const numero1 =Number(req.query.batata)
+  const numero2 =Number(req.query.numero2)
+
+const resultado = numero1 + numero2 
+res.send({ resultado })
+});
+
+
+app.get('/api/v1/exer7', (req, res) => {
+    // query params
+  const numero1 =Number(req.query.batata)
+  const numero2 =Number(req.query.numero2)
+
+const resultado = numero1 + numero2 
+res.send({ resultado })
+});
+
+
+
+
+app.get('/api/v1/exer8', (req, res) => {
+    // query params
+  const numero1 =Number(req.query.batata)
+  const numero2 =Number(req.query.numero2)
+
+const resultado = numero1 + numero2 
+res.send({ resultado })
+});
+
 
 // inicia o servidor express na porta 3000 e define uma função de retorno de uma chamada 
 app.listen(3000 , () => {
