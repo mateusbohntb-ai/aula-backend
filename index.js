@@ -1,52 +1,56 @@
 import express from "express"
 
+import cachorro from "./router/cachorro.js"
+
 const app = express()
 
 app.use(express.json())
 
-// Somar
-app.post("/api/v1/somar" , (req,res) => {
+app.use("/api/v1/cachorro", cachorro)
 
- const {numero1 , numero2} = req.body
+// // Somar
+// app.post("/api/v1/somar" , (req,res) => {
 
- const resultado = Number(numero1) + Number(numero2)
+//  const {numero1 , numero2} = req.body
+
+//  const resultado = Number(numero1) + Number(numero2)
 
 
- res.status(200).send({ 
-  messege : resultado
-})
+//  res.status(200).send({ 
+//   messege : resultado
+// })
 
-})
+// })
 
-// subtrair
-app.post("/api/v1/subtrair", (req, res) => {
-  const { numero1, numero2 } = req.body;
-  const resultado = Number(numero1) - Number(numero2)
+// // subtrair
+// app.post("/api/v1/subtrair", (req, res) => {
+//   const { numero1, numero2 } = req.body;
+//   const resultado = Number(numero1) - Number(numero2)
 
-  res.status(200).send({
-    message: resultado
-  });
-});
+//   res.status(200).send({
+//     message: resultado
+//   });
+// });
 
-// multiplicar
-app.get("/api/v1/multiplicar", (req, res) => {
-  const { numero1, numero2 } = req.query;
-  const resultado = Number(numero1) * Number(numero2)
+// // multiplicar
+// app.get("/api/v1/multiplicar", (req, res) => {
+//   const { numero1, numero2 } = req.query;
+//   const resultado = Number(numero1) * Number(numero2)
 
-  res.status(200).send({
-    message: resultado
-  });
-});
+//   res.status(200).send({
+//     message: resultado
+//   });
+// });
 
-// dividir
-app.get("/api/v1/divisao", (req, res) => {
-  const { numero1, numero2 } = req.query;
-  const resultado = Number(numero1) / Number(numero2)
+// // dividir
+// app.get("/api/v1/divisao", (req, res) => {
+//   const { numero1, numero2 } = req.query;
+//   const resultado = Number(numero1) / Number(numero2)
 
-  res.status(200).send({
-    message: resultado
-  });
-})
+//   res.status(200).send({
+//     message: resultado
+//   });
+// })
 
 // inicia o servidor express na porta 3000 e define uma função de retorno de uma chamada 
 app.listen(3000 , () => {
