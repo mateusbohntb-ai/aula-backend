@@ -1,5 +1,7 @@
 import express from "express"
 
+import parte1 from "./router/parte1.js"
+import parte2 from "./router/parte2.js"
 //server ou app
 
 
@@ -7,32 +9,9 @@ const app = express()
 
 app.use(express.json())
 
-app.post("/api/v1/exer1", (req, res) => {
+app.use("/api/v1/parte1", parte1)
 
-  const { numero1, numero2 } = req.body;
-
-  const resultado = Number(numero1) + Number(numero2)
-
-  res.status(200).send({
-    message: resultado
-  });
-});
-
-
-
-
-app.post("/api/v1/exer2", (req, res) => {
-
-  const { numero1, numero2 } = req.body;
-
-  const resultado = Number(numero1) * Number(numero2)
-
-  res.status(200).send({
-    message: resultado
-  });
-});
-
-
+app.use("/api/v1/parte2", parte2)
 
 
 
